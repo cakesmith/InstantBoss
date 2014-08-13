@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html ng-app="instantboss">
+<head>
+  <meta charset="utf-8"/>
+  <title>instantboss</title>
+
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+  <!-- inject:vendor:css -->
+  <!-- endinject -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="/css/styles/app.css">
+  <!-- endinject -->
+</head>
+<body>
+<h1>Instant Boss.</h1>
+
+<div class="boss" ng-controller="WorkCtrl">
+  <div class="row">
+    <div class="buttonBar col-lg-1">
+      <button class="btn btn-default" ng-click="start()">Work</button>
+      <button class="btn btn-default">Break</button>
+      <button class="btn btn-default" ng-click="pause()">Pause</button>
+      <button class="btn btn-default">Apply</button>
+      <button class="btn btn-default">Reset</button>
+
+    </div>
+    <div class="inputPanel col-lg-2">
+
+      <div class="row"> Work Minutes
+        <input ng-model="work" type="number" class="form-control"/>
+        Break Minutes
+        <input class="form-control" ng-model="break" type="number"/>
+        Repeat
+        <input class="form-control" ng-model="repeat" type="number"/>
+      </div>
+    </div>
+  </div>
+
+  <div class="status">
+    <div class="row">
+      <span ng-cloak>Session {{session}} of {{repeat}} - Total Work: {{totalWork | time}} - Total Work to Date: {{totalWorkToDate | time}}</span>
+    </div>
+  </div>
+
+
+
+  <div class="footer"></div>
+</div>
+
+<!-- inject:vendor:js -->
+<script src="/angular/angular.js"></script>
+<script src="/angular-route/angular-route.js"></script>
+<!-- endinject -->
+<!-- inject:js -->
+<script src="/components/filters/timeFilter.js"></script>
+<script src="/components/services/timer.js"></script>
+<script src="/instantboss-templates.js"></script>
+<script src="/components/controllers/work.js"></script>
+<script src="/app.js"></script>
+<!-- endinject -->
+</body>
+</html>
